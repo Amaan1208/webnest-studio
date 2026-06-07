@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Website Maintenance - WebNest Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .svc-hero{background:var(--green);padding:5rem 2.8125rem 4rem;border-bottom:4px solid var(--cream);position:relative;overflow:hidden}
+    .svc-hero::after{content:attr(data-title);position:absolute;right:-2rem;bottom:-1rem;font-family:'Bebas Neue',sans-serif;font-size:22vw;line-height:.8;color:rgba(255,255,247,.05);pointer-events:none}
+    .svc-hero .back{font:600 .75rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,247,.5);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2rem;transition:color .2s}
+    .svc-hero .back:hover{color:var(--lime)}
+    .svc-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,11rem);line-height:.85;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream)}
+    .svc-hero p{max-width:38rem;margin-top:1.5rem;font-size:1.05rem;line-height:1.65;color:rgba(255,255,247,.8);font-style:italic}
+    .plans{padding:5rem 2.8125rem;max-width:1200px}
+    .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
+    @media(max-width:900px){.plans-grid{grid-template-columns:1fr}}
+    .plan{padding:2.5rem;background:var(--cream);border:1.5px solid rgba(28,22,22,.1);position:relative;transition:border-color .2s}
+    .plan:hover{border-color:var(--lime)}
+    .plan.best{background:var(--dark);border-color:var(--lime)}
+    .plan-badge{font:700 .625rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--lime);margin-bottom:.75rem;display:block}
+    .plan-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:.5rem}
+    .plan.best .plan-name,.plan.best .plan-feat{color:var(--cream)}
+    .plan-price{display:flex;align-items:baseline;gap:3px;margin:1rem 0 1.5rem}
+    .plan-cur{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--lime)}
+    .plan-amt{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;line-height:1;color:var(--dark)}
+    .plan.best .plan-amt{color:var(--cream)}
+    .plan-unit{font-size:.8rem;color:var(--muted)}
+    .plan-feats{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+    .plan-feat{font-size:.875rem;color:var(--muted);display:flex;gap:.75rem;align-items:flex-start}
+    .plan-feat span{color:var(--lime);font-weight:700;flex-shrink:0}
+    .svc-cta{background:var(--navy);padding:5rem 2.8125rem;text-align:center}
+    .svc-cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,7rem);color:var(--cream);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:2rem}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html" class="header-brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#cdfb52"/><path d="M5 8L9 19L14 10L19 19L23 8" stroke="#1c1616" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      WebNest
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../services.html" class="nav-link active">Our Services</a>
+      <a href="../contact.html" class="nav-link">Contact Us</a>
+    </nav>
+  </header>
+  <div class="svc-hero" data-title="CARE">
+    <a href="../services.html" class="back">&larr; All Services</a>
+    <h1>Website<br>Maintenance</h1>
+    <p>Your website is a living thing. Our maintenance plans keep it healthy, fast, and beautiful &mdash; always.</p>
+  </div>
+  <div class="plans">
+    <div class="lines" data-lines><div class="line"><span class="word t-druk" style="font-size:clamp(1.75rem,3vw,2.75rem)">Choose your plan</span></div><span class="underline" style="max-width:200px;margin-top:.5rem"></span></div>
+    <div class="plans-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-price"><span class="plan-cur">&#8377;</span><span class="plan-amt">999</span><span class="plan-unit">/ month</span></div>
+        <ul class="plan-feats">
+          <li class="plan-feat"><span>&#10003;</span> Monthly website checkup</li>
+          <li class="plan-feat"><span>&#10003;</span> Performance review</li>
+          <li class="plan-feat"><span>&#10003;</span> Bug fixes &amp; minor updates</li>
+          <li class="plan-feat"><span>&#10003;</span> Security monitoring</li>
+        </ul>
+        <a href="../contact.html" class="btn-dark" style="display:block;text-align:center">Get started &rarr;</a>
+      </div>
+      <div class="plan reveal d1">
+        <div class="plan-name">Quarterly</div>
+        <div class="plan-price"><span class="plan-cur">&#8377;</span><span class="plan-amt">1,999</span><span class="plan-unit">/ quarter</span></div>
+        <ul class="plan-feats">
+          <li class="plan-feat"><span>&#10003;</span> Everything in Monthly</li>
+          <li class="plan-feat"><span>&#10003;</span> Quarterly deep review</li>
+          <li class="plan-feat"><span>&#10003;</span> Content updates</li>
+          <li class="plan-feat"><span>&#10003;</span> Domain &amp; hosting support</li>
+          <li class="plan-feat"><span>&#10003;</span> Priority response</li>
+        </ul>
+        <a href="../contact.html" class="btn-dark" style="display:block;text-align:center">Get started &rarr;</a>
+      </div>
+      <div class="plan best reveal d2">
+        <span class="plan-badge">&#9733; Best Value</span>
+        <div class="plan-name">Annual</div>
+        <div class="plan-price"><span class="plan-cur">&#8377;</span><span class="plan-amt">5,999</span><span class="plan-unit">/ year</span></div>
+        <ul class="plan-feats">
+          <li class="plan-feat"><span>&#10003;</span> Monthly checkups &amp; reviews</li>
+          <li class="plan-feat"><span>&#10003;</span> Annual design tweaks</li>
+          <li class="plan-feat"><span>&#10003;</span> Priority bug fixes</li>
+          <li class="plan-feat"><span>&#10003;</span> Domain &amp; hosting renewal</li>
+          <li class="plan-feat"><span>&#10003;</span> Dedicated support channel</li>
+          <li class="plan-feat"><span>&#10003;</span> Seasonal content updates</li>
+        </ul>
+        <a href="../contact.html" class="btn-lime" style="display:block;text-align:center">Get started &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="svc-cta"><h2>Keep your nest<br>running perfectly.</h2><a href="../contact.html" class="btn-lime">Get in touch &rarr;</a></div>
+  <footer class="site-footer">
+    <div class="footer-brand">WebNest Studio</div>
+    <ul class="footer-links"><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../contact.html">Contact</a></li></ul>
+    <p class="footer-copy">&copy; <span class="yr"></span> WebNest Studio</p>
+  </footer>
+  <script src="../main.js"></script>
+</body>
+</html>

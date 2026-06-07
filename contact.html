@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact Us - WebNest Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-split {
+      display:grid; grid-template-columns:1fr 1fr; min-height:calc(100dvh - var(--hh));
+    }
+    @media(max-width:768px){ .contact-split { grid-template-columns:1fr; } }
+
+    .contact-left {
+      background:var(--sky); padding:5rem var(--pm);
+      display:flex; flex-direction:column; justify-content:space-between;
+      border-right:4px solid var(--cream);
+    }
+    .contact-left h1 {
+      font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,9vw,9rem);
+      line-height:.85; letter-spacing:-.02em; text-transform:uppercase; color:var(--cream);
+    }
+    .contact-info { margin-top:3rem; }
+    .ci-item { margin-bottom:2rem; }
+    .ci-label { font:600 .7rem/1 'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,247,.5); margin-bottom:.5rem; }
+    .ci-value { font-size:1.05rem; color:var(--cream); font-weight:500; }
+    .ci-value a { color:var(--lime); }
+
+    .contact-right {
+      background:var(--cream); padding:5rem var(--pm);
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .contact-right h2 {
+      font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3.5rem);
+      letter-spacing:-.01em; text-transform:uppercase; margin-bottom:2.5rem;
+    }
+    .form-group { margin-bottom:1.5rem; }
+    label { display:block; font:600 .75rem/1 'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:.6rem; }
+    input, textarea, select {
+      width:100%; padding:.875rem 1rem;
+      background:var(--cream); color:var(--dark);
+      border:1.5px solid rgba(28,22,22,.15);
+      font:400 1rem/1.4 'Space Grotesk',sans-serif;
+      outline:none; transition:border-color .2s;
+      -webkit-appearance:none; appearance:none;
+    }
+    input:focus, textarea:focus, select:focus { border-color:var(--lime); }
+    textarea { resize:vertical; min-height:140px; }
+    .form-submit { margin-top:2rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect width="28" height="28" rx="7" fill="#cdfb52"/>
+        <path d="M5 8L9 19L14 10L19 19L23 8" stroke="#1c1616" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      WebNest
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="index.html"    class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Our Services</a>
+      <a href="contact.html"  class="nav-link active">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="contact-split">
+    <div class="contact-left">
+      <div>
+        <h1>Let's<br>build<br>together.</h1>
+        <div class="contact-info">
+          <div class="ci-item">
+            <div class="ci-label">Email</div>
+            <div class="ci-value"><a href="mailto:info@webneststudio.in">info@webneststudio.in</a></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-label">Location</div>
+            <div class="ci-value">Gurgaon, Haryana, India</div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-label">Response time</div>
+            <div class="ci-value">Within 24 hours</div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-label">We serve</div>
+            <div class="ci-value">Aspirational small businesses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h2>Build Together</h2>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.6">Tell us about your business &mdash; this helps us design something truly yours.</p>
+      <form action="mailto:info@webneststudio.in" method="POST" enctype="text/plain" novalidate>
+        <div style="font:700 .7rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(28,22,22,.1)">Business Information</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+          <div class="form-group" style="margin:0">
+            <label for="company">Company Name *</label>
+            <input type="text" id="company" name="company" placeholder="e.g. Brew &amp; Bloom Cafe" required>
+          </div>
+          <div class="form-group" style="margin:0">
+            <label for="name">Owner&rsquo;s Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+          <div class="form-group" style="margin:0">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city">City / Location *</label>
+          <input type="text" id="city" name="city" placeholder="e.g. Mumbai, Maharashtra" required>
+        </div>
+        <div style="font:700 .7rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:1.5rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(28,22,22,.1)">Package Selection</div>
+        <div class="form-group">
+          <label for="package">Choose Your Package *</label>
+          <select id="package" name="package" required>
+            <option value="" disabled selected>Select a package</option>
+            <option>Nest Essentials &mdash; Website + Photoshoot (&#8377;25,000)</option>
+            <option>Nest Complete &mdash; Website + Photoshoot + Social Media (&#8377;30,000)</option>
+          </select>
+        </div>
+        <div style="font:700 .7rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:1.5rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(28,22,22,.1)">Tell Us About Your Business</div>
+        <div class="form-group">
+          <label for="message">Your Story</label>
+          <textarea id="message" name="message" placeholder="What&rsquo;s your story? What do you offer? Who are your customers? The more you share, the better we can design for you..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-lime">Start Your Journey Now &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-brand">WebNest Studio</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; <span class="yr"></span> WebNest Studio</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

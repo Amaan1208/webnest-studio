@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WebNest Studio - Web Design & Development</title>
+  <meta name="description" content="WebNest Studio builds websites that grow your business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <svg style="display:none" aria-hidden="true">
+    <filter id="sq0"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="0"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="Y"/></filter>
+    <filter id="sq1"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="1"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="Y"/></filter>
+    <filter id="sq2"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="2"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="Y"/></filter>
+    <filter id="sq3"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="3"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="Y"/></filter>
+    <filter id="sq4"><feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="Y"/></filter>
+  </svg>
+  <style>
+    /* HOME-SPECIFIC */
+    .hero {
+      background:var(--sky); position:relative; overflow:hidden;
+      min-height:calc(100dvh - var(--hh)); display:flex; align-items:flex-end;
+    }
+    .hero::after { content:''; position:absolute; bottom:-2px; left:0; width:100%; height:4px; background:var(--cream); z-index:4; }
+    .clouds { position:absolute; inset:0; pointer-events:none; }
+    .cloud-strip {
+      position:absolute; width:160vw; display:flex; align-items:center;
+      overflow:hidden; white-space:nowrap;
+      transform:translateX(-20vw) rotate(20.94deg);
+    }
+    .cloud-strip.s0{top:-11%;z-index:2} .cloud-strip.s1{top:0} .cloud-strip.s2{top:15%} .cloud-strip.s3{top:27%}
+    .cs-inner { display:inline-flex; align-items:center; animation:cloud-march 100s linear infinite; will-change:transform; }
+    .cloud-strip.s1 .cs-inner{animation-duration:130s;animation-direction:reverse}
+    .cloud-strip.s2 .cs-inner{animation-duration:100s}
+    .cloud-strip.s3 .cs-inner{animation-duration:120s;animation-direction:reverse}
+    @keyframes cloud-march { to { transform:translateX(-50%); } }
+    .cs-word { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,7vw,7rem); color:rgba(255,255,247,.12); padding:0 1.5rem; user-select:none; }
+    .cs-dot  { width:12px; height:12px; border-radius:50%; background:rgba(255,255,247,.08); flex-shrink:0; }
+    .hero-content { position:relative; z-index:3; width:100%; text-align:center; padding:0 var(--pm) 3rem; }
+    .hero-headline {
+      font-family:'Bebas Neue',sans-serif; font-weight:400; line-height:.85;
+      letter-spacing:-.02em; text-transform:uppercase;
+      font-size:clamp(5rem,15vw,18rem); color:var(--cream);
+      text-align:center; width:100%;
+      animation:squiggly .5s steps(1) infinite;
+    }
+    @keyframes squiggly {
+      0%{filter:url(#sq0)} 25%{filter:url(#sq1)} 50%{filter:url(#sq2)} 75%{filter:url(#sq3)} to{filter:url(#sq4)}
+    }
+    .hero-sub { font-size:.8125rem; color:rgba(255,255,247,.7); margin-top:1rem; text-transform:uppercase; letter-spacing:.1em; font-weight:600; }
+
+    /* INTRO */
+    .intro { padding:7rem var(--pm) 5rem; }
+    .intro-inner {
+      max-width:1300px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 520px; gap:5rem; align-items:center;
+    }
+    @media(max-width:1100px){.intro-inner{grid-template-columns:1fr 420px;gap:3rem}}
+    @media(max-width:820px){.intro-inner{grid-template-columns:1fr;gap:3rem}}
+    .intro-headline { font-size:clamp(2.5rem,5vw,5rem); }
+    .intro-body { max-width:36rem; margin-top:2rem; font-size:1.1rem; color:var(--muted); line-height:1.65; font-style:italic; }
+    @media(min-width:1024px){.intro-body{font-size:1.375rem}}
+    .intro-actions { margin-top:2.5rem; display:flex; gap:.75rem; flex-wrap:wrap; }
+    .spline-wrap {
+      height:520px; border-radius:20px; overflow:hidden;
+      position:relative;
+      background:var(--dark);
+      border:1px solid rgba(205,251,82,.15);
+      box-shadow:0 24px 80px rgba(28,22,22,.18);
+    }
+    @media(max-width:820px){.spline-wrap{height:380px}}
+    @media(max-width:599px){.spline-wrap{height:300px}}
+    .spline-wrap iframe,.spline-wrap spline-viewer {
+      position:absolute; inset:0; width:100%; height:100%; border:0;
+    }
+
+    /* SERVICES FACTIONS */
+    .factions { height:100vh; display:flex; overflow:hidden; position:relative; }
+    @media(max-width:699px){.factions{flex-direction:column;height:auto}}
+    .factions-bg { position:absolute; inset:0; display:flex; z-index:0; }
+    .fc{height:100%;flex:1} .fc.c1{background:var(--green)} .fc.c2{background:var(--lav)} .fc.c3{background:var(--red)}
+    .fc-cut { height:100%; width:69px; position:relative; margin-right:-5px; z-index:1; flex-shrink:0; }
+    .fc-cut::after { content:''; position:absolute; inset:0; transform:translateZ(0); clip-path:polygon(0 0,98% 0,21% 50%,69% 48%,0 105%); }
+    .fc-cut.c12{background:var(--lav);border-left:1px solid var(--green)} .fc-cut.c12::after{background:var(--green)}
+    .fc-cut.c23{background:var(--red);border-left:1px solid var(--lav)}   .fc-cut.c23::after{background:var(--lav)}
+    .factions-cols { position:relative; z-index:2; width:100%; display:flex; }
+    .fcol {
+      flex:1; height:100vh; display:flex; flex-direction:column;
+      justify-content:flex-end; padding:3rem var(--pm) 4rem; color:var(--cream);
+    }
+    @media(max-width:699px){.fcol{height:auto;padding:2.5rem 1.5rem;justify-content:flex-start}}
+    .fcol-num{font:600 .75rem/1 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:1rem}
+    .fcol-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.25rem,3.5vw,3.75rem);line-height:.9;text-transform:uppercase;margin-bottom:1rem}
+    .fcol-desc{font-size:.9rem;line-height:1.6;opacity:.82;max-width:220px}
+    .fcol-link {
+      display:inline-flex; align-items:center; gap:.4rem; margin-top:1.5rem;
+      font:600 .75rem/1 'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:.06em;
+      padding:.5rem 1rem; transition:background .2s,color .2s;
+    }
+    .fcol.design .fcol-link{background:var(--lime);color:var(--dark)}
+    .fcol.dev    .fcol-link{background:var(--dark);color:var(--cream)}
+    .fcol.seo    .fcol-link{background:var(--pink);color:#fff}
+
+    /* PROCESS */
+    .process { background:var(--navy); padding:6rem var(--pm); }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:3.5rem; }
+    @media(max-width:1023px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:599px){.process-grid{grid-template-columns:1fr}}
+    .pitem { padding:2.5rem 1.5rem; border:1px solid rgba(255,255,247,.07); transition:background .3s; }
+    .pitem:hover { background:rgba(205,251,82,.05); }
+    .pnum{font:400 .625rem/1 'Space Grotesk',sans-serif;color:var(--lime);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
+    .ptitle{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:var(--cream);margin-bottom:.75rem;letter-spacing:.02em}
+    .pdesc{font-size:.875rem;color:#8ba9cc;line-height:1.6}
+
+    @media(prefers-reduced-motion:reduce){
+      .cs-inner{animation:none} .hero-headline{animation:none;filter:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect width="28" height="28" rx="7" fill="#cdfb52"/>
+        <path d="M5 8L9 19L14 10L19 19L23 8" stroke="#1c1616" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      WebNest
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="index.html"    class="nav-link active">Home</a>
+      <a href="services.html" class="nav-link">Our Services</a>
+      <a href="contact.html"  class="nav-link">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Hero">
+    <div class="clouds" aria-hidden="true">
+      <div class="cloud-strip s0"><div class="cs-inner">
+        <span class="cs-word">WEBNEST</span><span class="cs-dot"></span><span class="cs-word">WEB DESIGN</span><span class="cs-dot"></span><span class="cs-word">DEVELOPMENT</span><span class="cs-dot"></span><span class="cs-word">SEO</span><span class="cs-dot"></span><span class="cs-word">BRANDING</span><span class="cs-dot"></span>
+        <span class="cs-word">WEBNEST</span><span class="cs-dot"></span><span class="cs-word">WEB DESIGN</span><span class="cs-dot"></span><span class="cs-word">DEVELOPMENT</span><span class="cs-dot"></span><span class="cs-word">SEO</span><span class="cs-dot"></span><span class="cs-word">BRANDING</span><span class="cs-dot"></span>
+      </div></div>
+      <div class="cloud-strip s1"><div class="cs-inner">
+        <span class="cs-word">PERFORMANCE</span><span class="cs-dot"></span><span class="cs-word">E-COMMERCE</span><span class="cs-dot"></span><span class="cs-word">DIGITAL</span><span class="cs-dot"></span><span class="cs-word">RESULTS</span><span class="cs-dot"></span>
+        <span class="cs-word">PERFORMANCE</span><span class="cs-dot"></span><span class="cs-word">E-COMMERCE</span><span class="cs-dot"></span><span class="cs-word">DIGITAL</span><span class="cs-dot"></span><span class="cs-word">RESULTS</span><span class="cs-dot"></span>
+      </div></div>
+      <div class="cloud-strip s2"><div class="cs-inner">
+        <span class="cs-word">GROW YOUR BUSINESS</span><span class="cs-dot"></span><span class="cs-word">RANK HIGHER</span><span class="cs-dot"></span><span class="cs-word">SELL MORE</span><span class="cs-dot"></span>
+        <span class="cs-word">GROW YOUR BUSINESS</span><span class="cs-dot"></span><span class="cs-word">RANK HIGHER</span><span class="cs-dot"></span><span class="cs-word">SELL MORE</span><span class="cs-dot"></span>
+      </div></div>
+      <div class="cloud-strip s3"><div class="cs-inner">
+        <span class="cs-word">INDIA</span><span class="cs-dot"></span><span class="cs-word">WEBNEST STUDIO</span><span class="cs-dot"></span><span class="cs-word">CONVERSIONS</span><span class="cs-dot"></span>
+        <span class="cs-word">INDIA</span><span class="cs-dot"></span><span class="cs-word">WEBNEST STUDIO</span><span class="cs-dot"></span><span class="cs-word">CONVERSIONS</span><span class="cs-dot"></span>
+      </div></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-headline" aria-label="Your Business Deserves a Beautiful Nest">Your Business<br>Deserves a<br>Beautiful Nest.</h1>
+      <p class="hero-sub">Websites &middot; Photography &middot; Social Media &middot; Gurgaon, India</p>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro-inner">
+      <!-- Left: text -->
+      <div>
+        <div class="lines" data-lines>
+          <div class="line"><span class="word t-druk intro-headline">We Build Digital</span></div>
+          <div class="line"><span class="word t-druk intro-headline">Homes For Growing</span></div>
+          <div class="line"><span class="word t-druk intro-headline">Businesses.</span></div>
+          <span class="underline" style="margin-top:.75rem;max-width:480px"></span>
+        </div>
+        <p class="intro-body reveal d1">Every cafe has a story. Every bakery has a soul. We bring that story to life online &mdash; beautifully. Stunning websites, professional photography, and social media launches built for small businesses that care about their craft.</p>
+        <div class="intro-actions reveal d2">
+          <a href="contact.html"  class="btn-lime">Start your project</a>
+          <a href="services.html" class="btn-dark">Our services</a>
+        </div>
+      </div>
+      <!-- Right: Spline 3D -->
+      <div class="spline-wrap reveal d2" aria-label="Interactive 3D element">
+        <iframe
+          src="https://my.spline.design/clonercubesimplecopy-7Q5y9iBFWKb4LcrQSyz9Hxmw/"
+          frameborder="0"
+          allowfullscreen
+          title="Interactive 3D element"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div style="background:var(--cream);border-bottom:1px solid rgba(28,22,22,.08)">
+    <div style="max-width:1300px;margin:0 auto;padding:0 2.8125rem;display:grid;grid-template-columns:repeat(3,1fr)">
+      <div style="padding:3rem 2rem;border-right:1px solid rgba(28,22,22,.08)">
+        <div class="t-druk" style="font-size:3.5rem;line-height:1">100<span style="color:var(--lime)">%</span></div>
+        <p style="margin-top:.5rem;font-size:.875rem;color:var(--muted)">Custom Designed, Just For You</p>
+      </div>
+      <div style="padding:3rem 2rem;border-right:1px solid rgba(28,22,22,.08)">
+        <div class="t-druk" style="font-size:3.5rem;line-height:1">3<span style="color:var(--lime)">-in-1</span></div>
+        <p style="margin-top:.5rem;font-size:.875rem;color:var(--muted)">Website + Photos + Social Media</p>
+      </div>
+      <div style="padding:3rem 2rem">
+        <div class="t-druk" style="font-size:3.5rem;line-height:1">24<span style="color:var(--lime)">hr</span></div>
+        <p style="margin-top:.5rem;font-size:.875rem;color:var(--muted)">Response Guarantee</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="factions" aria-label="Services overview">
+    <div class="factions-bg" aria-hidden="true">
+      <div class="fc c1"></div><div class="fc-cut c12"></div>
+      <div class="fc c2"></div><div class="fc-cut c23"></div>
+      <div class="fc c3"></div>
+    </div>
+    <div class="factions-cols">
+      <div class="fcol design">
+        <div class="fcol-num">01 / 03</div>
+        <h2 class="fcol-title">Website<br>Dev</h2>
+        <p class="fcol-desc">End-to-end website development — design to deployment. Catalogue, reviews, location, contact — everything your customers need.</p>
+        <a href="services/web-design.html" class="fcol-link">Explore &rarr;</a>
+      </div>
+      <div class="fcol dev">
+        <div class="fcol-num">02 / 03</div>
+        <h2 class="fcol-title">Photo&shy;graphy</h2>
+        <p class="fcol-desc">Professional photoshoots crafted for websites and social media — images that don't just look good, they convert.</p>
+        <a href="services/photography.html" class="fcol-link">Explore &rarr;</a>
+      </div>
+      <div class="fcol seo">
+        <div class="fcol-num">03 / 03</div>
+        <h2 class="fcol-title">Social<br>Media</h2>
+        <p class="fcol-desc">Account setup, branded launch posts, reels, and a content strategy that gets your brand buzzing from day one.</p>
+        <a href="services/social-media.html" class="fcol-link">Explore &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="lines" data-lines style="padding-bottom:.5rem">
+      <div class="line"><span class="word t-druk" style="font-size:clamp(2rem,4vw,3.5rem);color:var(--cream)">How we work</span></div>
+      <span class="underline" style="max-width:200px;margin-top:.5rem"></span>
+    </div>
+    <div class="process-grid">
+      <div class="pitem reveal">   <div class="pnum">01</div><div class="ptitle">Discovery Call</div><p class="pdesc">We learn about your brand and vision through our Client Discovery Document &mdash; your blueprint for the perfect website.</p></div>
+      <div class="pitem reveal d1"><div class="pnum">02</div><div class="ptitle">Design &amp; Shoot</div><p class="pdesc">We design your website and schedule your photoshoot, capturing your space and brand in its best light.</p></div>
+      <div class="pitem reveal d2"><div class="pnum">03</div><div class="ptitle">Build &amp; Review</div><p class="pdesc">We develop everything, share previews, and refine until it&rsquo;s exactly right &mdash; not a pixel out of place.</p></div>
+      <div class="pitem reveal d3"><div class="pnum">04</div><div class="ptitle">Launch &amp; Maintain</div><p class="pdesc">Your website goes live, social media launches, and our maintenance plans keep everything running beautifully.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section style="background:var(--cream);padding:6rem 2.8125rem">
+    <div style="max-width:1300px;margin:0 auto">
+      <div class="lines" data-lines style="margin-bottom:3rem">
+        <div class="line"><span class="word t-druk" style="font-size:clamp(2rem,4vw,3.5rem)">Simple, Honest Pricing</span></div>
+        <span class="underline" style="max-width:220px;margin-top:.5rem"></span>
+      </div>
+      <p style="font-size:1rem;color:var(--muted);margin-bottom:3rem;font-style:italic">No hidden fees. No surprises. Two clear packages built for small businesses.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px">
+        <!-- Nest Essentials -->
+        <div style="background:var(--dark);padding:2.5rem;border:1px solid rgba(255,255,247,.08)" class="reveal">
+          <div style="font:600 .7rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1rem">Website + Photography</div>
+          <div class="t-druk" style="font-size:2.5rem;color:var(--cream);margin-bottom:.75rem">Nest Essentials</div>
+          <p style="font-size:.9rem;color:#8ba9cc;margin-bottom:1.5rem;line-height:1.6">Your complete digital home &mdash; a stunning website paired with a professional photoshoot.</p>
+          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:1.5rem">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--lime)">&#8377;</span>
+            <span class="t-druk" style="font-size:4rem;color:var(--cream)">25,000</span>
+            <span style="font-size:.8rem;color:var(--muted)">one-time</span>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Full Stack Website Development</li>
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Professional Photoshoot</li>
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Mobile Responsive Design</li>
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Catalogue &amp; Menu Pages</li>
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Reviews &amp; Store Location</li>
+            <li style="font-size:.875rem;color:#8ba9cc;display:flex;gap:.75rem;align-items:center"><span style="color:var(--lime);font-weight:700">&#10003;</span> Social Media Links Integration</li>
+          </ul>
+          <a href="contact.html" class="btn-lime" style="display:block;text-align:center">Choose Essentials &rarr;</a>
+        </div>
+        <!-- Nest Complete -->
+        <div style="background:var(--lime);padding:2.5rem;border:1px solid var(--lime)" class="reveal d1">
+          <div style="font:600 .7rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:rgba(28,22,22,.55);margin-bottom:1rem">&#10022; Website + Photography + Social</div>
+          <div class="t-druk" style="font-size:2.5rem;color:var(--dark);margin-bottom:.75rem">Nest Complete</div>
+          <p style="font-size:.9rem;color:rgba(28,22,22,.7);margin-bottom:1.5rem;line-height:1.6">Everything in Essentials, plus a full social media launch to get your brand buzzing online from day one.</p>
+          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:1.5rem">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--dark)">&#8377;</span>
+            <span class="t-druk" style="font-size:4rem;color:var(--dark)">30,000</span>
+            <span style="font-size:.8rem;color:rgba(28,22,22,.5)">one-time</span>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> Everything in Nest Essentials</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> Social Media Account Setup</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> 5 Branded Launch Posts</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> 3 Professional Reels</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> 1 Promotional Story</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> Brand Voice &amp; Content Strategy</li>
+            <li style="font-size:.875rem;color:rgba(28,22,22,.8);display:flex;gap:.75rem;align-items:center"><span style="font-weight:700">&#10003;</span> Priority Delivery</li>
+          </ul>
+          <a href="contact.html" class="btn-dark" style="display:block;text-align:center">Choose Complete &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--navy);padding:6rem 2.8125rem">
+    <div style="max-width:800px;margin:0 auto">
+      <div class="lines" data-lines style="margin-bottom:3rem">
+        <div class="line"><span class="word t-druk" style="font-size:clamp(2rem,4vw,3.5rem);color:var(--cream)">Is WebNest Right For You?</span></div>
+        <span class="underline" style="max-width:260px;margin-top:.5rem"></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <details style="background:rgba(255,255,247,.04);border:1px solid rgba(255,255,247,.08);padding:1.5rem" class="reveal">
+          <summary style="font:700 1rem/1.3 'Space Grotesk',sans-serif;color:var(--cream);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">Are you opening a new restaurant, cafe, or shop? <span class="faq-icon">+</span></summary>
+          <p style="margin-top:1rem;font-size:.9rem;color:#8ba9cc;line-height:1.65">Launching a new business is exciting &mdash; but getting it right online from day one sets the tone for everything. We build your digital presence before you open the doors so customers find you the moment you&rsquo;re ready.</p>
+        </details>
+        <details style="background:rgba(255,255,247,.04);border:1px solid rgba(255,255,247,.08);padding:1.5rem" class="reveal d1">
+          <summary style="font:700 1rem/1.3 'Space Grotesk',sans-serif;color:var(--cream);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">Not happy with your current website? <span class="faq-icon">+</span></summary>
+          <p style="margin-top:1rem;font-size:.9rem;color:#8ba9cc;line-height:1.65">If your website looks outdated, loads slowly, or just doesn&rsquo;t represent your brand &mdash; you&rsquo;re likely losing customers every day. We redesign websites that actually work hard for your business.</p>
+        </details>
+        <details style="background:rgba(255,255,247,.04);border:1px solid rgba(255,255,247,.08);padding:1.5rem" class="reveal d2">
+          <summary style="font:700 1rem/1.3 'Space Grotesk',sans-serif;color:var(--cream);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">Just starting out and don&rsquo;t know where to begin? <span class="faq-icon">+</span></summary>
+          <p style="margin-top:1rem;font-size:.9rem;color:#8ba9cc;line-height:1.65">We guide you from scratch &mdash; from choosing a domain name to launching on social media. No tech knowledge required. We speak your language, not code.</p>
+        </details>
+        <details style="background:rgba(255,255,247,.04);border:1px solid rgba(255,255,247,.08);padding:1.5rem" class="reveal">
+          <summary style="font:700 1rem/1.3 'Space Grotesk',sans-serif;color:var(--cream);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">Want to be taken seriously online? <span class="faq-icon">+</span></summary>
+          <p style="margin-top:1rem;font-size:.9rem;color:#8ba9cc;line-height:1.65">Your website is often the first impression. A polished, professional online presence tells your customers: we care about quality. That trust translates directly into more footfall and more sales.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand">WebNest Studio</div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; <span class="yr"></span> WebNest Studio &mdash; Building beautiful digital homes for small businesses across India &mdash; one nest at a time. &#127470;&#127475;</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

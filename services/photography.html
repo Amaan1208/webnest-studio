@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Professional Photography - WebNest Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .svc-hero{background:var(--sky);padding:5rem 2.8125rem 4rem;border-bottom:4px solid var(--cream);position:relative;overflow:hidden}
+    .svc-hero::after{content:attr(data-title);position:absolute;right:-2rem;bottom:-1rem;font-family:'Bebas Neue',sans-serif;font-size:22vw;line-height:.8;color:rgba(255,255,247,.1);pointer-events:none}
+    .svc-hero .back{font:600 .75rem/1 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,247,.6);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2rem;transition:color .2s}
+    .svc-hero .back:hover{color:var(--cream)}
+    .svc-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,11rem);line-height:.85;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream)}
+    .svc-hero p{max-width:38rem;margin-top:1.5rem;font-size:1.05rem;line-height:1.65;color:rgba(255,255,247,.82);font-style:italic}
+    .svc-body{padding:5rem 2.8125rem;max-width:1200px}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
+    @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:599px){.svc-grid{grid-template-columns:1fr}}
+    .svc-feat{padding:2rem 1.5rem;background:var(--cream);border:1.5px solid rgba(28,22,22,.08);transition:border-color .2s}
+    .svc-feat:hover{border-color:var(--lime)}
+    .svc-feat-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.02em;margin-bottom:.75rem}
+    .svc-feat-desc{font-size:.9rem;color:var(--muted);line-height:1.65}
+    .svc-cta{background:var(--dark);padding:5rem 2.8125rem;text-align:center}
+    .svc-cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,7rem);color:var(--cream);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:2rem}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../index.html" class="header-brand">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#cdfb52"/><path d="M5 8L9 19L14 10L19 19L23 8" stroke="#1c1616" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      WebNest
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../services.html" class="nav-link active">Our Services</a>
+      <a href="../contact.html" class="nav-link">Contact Us</a>
+    </nav>
+  </header>
+  <div class="svc-hero" data-title="PHOTO">
+    <a href="../services.html" class="back">&larr; All Services</a>
+    <h1>Professional<br>Photography</h1>
+    <p>Great food, beautiful spaces, and amazing products deserve stunning photography. Images crafted specifically for websites and social media &mdash; images that don&rsquo;t just look good, they convert.</p>
+  </div>
+  <div class="svc-body">
+    <div class="lines" data-lines><div class="line"><span class="word t-druk" style="font-size:clamp(1.75rem,3vw,2.75rem)">What&rsquo;s included</span></div><span class="underline" style="max-width:180px;margin-top:.5rem"></span></div>
+    <div class="svc-grid">
+      <div class="svc-feat reveal">   <div class="svc-feat-title">On-Site Shoot</div><p class="svc-feat-desc">We come to your location and photograph your space, product, or team in its best natural light.</p></div>
+      <div class="svc-feat reveal d1"><div class="svc-feat-title">Web-Optimised Edits</div><p class="svc-feat-desc">All images professionally edited and exported at the right size and format for fast-loading websites.</p></div>
+      <div class="svc-feat reveal d2"><div class="svc-feat-title">Social Media Crops</div><p class="svc-feat-desc">Every photo delivered in multiple aspect ratios &mdash; Instagram square, story, LinkedIn banner, and more.</p></div>
+      <div class="svc-feat reveal">   <div class="svc-feat-title">Hero &amp; Banner Shots</div><p class="svc-feat-desc">Wide-format hero images designed specifically to fill the top of your website beautifully.</p></div>
+      <div class="svc-feat reveal d1"><div class="svc-feat-title">Product &amp; Food Styling</div><p class="svc-feat-desc">Props, lighting, and composition tuned to make your products look their absolute best.</p></div>
+      <div class="svc-feat reveal d2"><div class="svc-feat-title">Full Gallery Delivery</div><p class="svc-feat-desc">All final images delivered via a private online gallery within 5 business days of the shoot.</p></div>
+    </div>
+  </div>
+  <div class="svc-cta"><h2>Book your<br>photoshoot.</h2><a href="../contact.html" class="btn-lime">Start your project &rarr;</a></div>
+  <footer class="site-footer">
+    <div class="footer-brand">WebNest Studio</div>
+    <ul class="footer-links"><li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li><li><a href="../contact.html">Contact</a></li></ul>
+    <p class="footer-copy">&copy; <span class="yr"></span> WebNest Studio</p>
+  </footer>
+  <script src="../main.js"></script>
+</body>
+</html>
