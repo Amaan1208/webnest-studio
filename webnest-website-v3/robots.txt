@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webneststudio.in/sitemap.xml
